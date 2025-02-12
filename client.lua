@@ -2,6 +2,10 @@
 --         My First Script
 -----------------------------------
 
+--local lib = exports['ox_lib']:getLib()
+local mMenu = require('library.menu')
+
+mMenu:new('test_menu', 'Test Menu', 'top-right', {label = 'Test', description = 'Description'})
 
 RegisterCommand('send_notify', function(source, args)
     -- send the notification through ox_lib
@@ -16,3 +20,9 @@ RegisterCommand('send_notify', function(source, args)
         args = { 'Notification sent!' }
     })
 end, false)
+
+RegisterCommand('test_menu', function()
+    lib.showMenu('test_menu')
+end)
+
+
